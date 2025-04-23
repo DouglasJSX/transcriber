@@ -1,6 +1,6 @@
 export const config = {
   api: {
-    bodyParser: false, // Desativa o parser padrão
+    bodyParser: false,
   },
 };
 
@@ -10,13 +10,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Coletar os chunks de dados manualmente
     const chunks = [];
     for await (const chunk of req) {
       chunks.push(chunk);
     }
 
-    // Converter para Buffer e depois para Blob
     const audioBuffer = Buffer.concat(chunks);
     const audioBlob = new Blob([audioBuffer], { type: "audio/webm" });
 

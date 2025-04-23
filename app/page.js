@@ -23,7 +23,7 @@ export default function VoiceTranscriber() {
         }
       };
 
-      mediaRecorderRef.current.start(250); // Coletar dados a cada 250ms
+      mediaRecorderRef.current.start(250);
       setIsRecording(true);
     } catch (err) {
       setError("Não foi possível acessar o microfone");
@@ -56,7 +56,7 @@ export default function VoiceTranscriber() {
         method: "POST",
         body: audioBlob,
         headers: {
-          "Content-Type": "audio/webm", // Adiciona o tipo de conteúdo
+          "Content-Type": "audio/webm",
         },
       });
 
@@ -77,15 +77,17 @@ export default function VoiceTranscriber() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <h1 className="text-3xl font-bold mb-8">
-        Transcrição de Voz em Tempo Real
+      <h1 className="text-2xl font-semibold mb-8">
+        Transcrição de Voz para Texto
       </h1>
 
       <button
         onClick={isRecording ? stopRecording : startRecording}
         disabled={isLoading}
-        className={`px-6 py-3 rounded-full text-white font-medium ${
-          isRecording ? "bg-red-500" : "bg-blue-500"
+        className={`px-5 border-2 text-[#363636] hover:bg-transparent hover:text-white py-[4px] rounded-lg font-medium duration-300 ${
+          isRecording
+            ? "bg-green-500 border-green-500"
+            : "bg-white border-white"
         } ${isLoading ? "opacity-50" : ""}`}
       >
         {isLoading
@@ -103,8 +105,8 @@ export default function VoiceTranscriber() {
 
       {transcript && (
         <div className="mt-6 bg-gray-100 p-4 rounded max-w-xl w-full text-[#363636]">
-          <h2 className="text-lg font-semibold mb-2">Transcrição:</h2>
-          <p className="whitespace-pre-wrap">{transcript}</p>
+          <h2 className="text-[#363636] font-semibold mb-2">Transcrição:</h2>
+          <p className="whitespace-pre-wrap text-[#363636]">{transcript}</p>
         </div>
       )}
     </div>
