@@ -16,7 +16,9 @@ export default function VoiceTranscriber() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <h1 className="text-2xl font-semibold mb-8">Assistente de Voz</h1>
+      <h1 className="text-2xl font-semibold mb-8">
+        Transcrição e Assistente de Voz
+      </h1>
 
       <Button
         isRecording={isRecording}
