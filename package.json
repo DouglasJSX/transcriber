@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "formidable": "^3.5.3",
-    "next": "15.1.7",
+    "next": "15.1.11",
     "openai": "^4.95.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
